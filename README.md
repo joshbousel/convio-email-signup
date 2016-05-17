@@ -4,7 +4,7 @@ This widget allows for addition of Convio survey forms to be used on WCS's prima
 ## Getting Started
 The widget has a jQuery dependency that can bed installed via npm:
 ```
-nmp install
+npm install
 ```
 
 main.js is the primary script for the widget. To compile the final output:
