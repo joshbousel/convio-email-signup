@@ -2,12 +2,12 @@
 This widget allows for addition of Convio survey forms to be used on WCS's primary CMS.
 
 ## Getting Started
-The widget has a jQuery dependency that can install via npm:
+The widget has a jQuery dependency that can bed installed via npm:
 ```
 nmp install
 ```
 
-main.js is the primary script for the widget. To compile to final output:
+main.js is the primary script for the widget. To compile the final output:
 ```
 browserify main.js -o convio-signup.js
 ```
@@ -35,6 +35,6 @@ Next add inputs for each field you need on the form. Each field requires the fol
 - **data-id:** The id of the form field *For proper email validation, an email field must have this value set as 'email'*
 - **data-req:** 'true' if the field is required, 'false' if it is not
 - **data-map:** The corresponding field name in Convio *ie: 'cons_email'*
-- **data-label=:** The label to appear above the field
+- **data-label:** The label to appear above the field
 
 Finally, to display a thank you message, a div with the class of 'thanks' must be added. Any html within this div will display after the form is successfully submitted.
