@@ -2,16 +2,16 @@
 var $ = require('jquery');
 
 $(function(){
-	var $emailContainer = $('.convio-email-signup');
+	var $emailContainer = $('.convio-survey');
 	var surveyID = $emailContainer.attr('data-surveyid');
 	var reqs = [];
 	var maps = [];
-	var $thanks = $('.convio-email-signup .thanks');
+	var $thanks = $('.convio-survey .thanks');
 	var formHTML = '<div class="form-container">';
-	formHTML += '<style>.convio-email-signup { width: 80%; margin: 0 auto 15px; } .convio-email-signup .form-row { margin: 0 0 25px; } .convio-email-signup .input-full { width: 100%; } .convio-email-signup .input-text { box-shadow: none; border: 1px solid #e8e7e5; transition: border 0.2s ease-out; -webkit-appearance: none; -moz-appearance: none; appearance: none; } .convio-email-signup .input-text:focus { outline: none; border: 1px solid #A2A2A2; } .convio-email-signup .error { background-color: #cd4e38; border-radius: 4px; padding: 3px 15px; color: #fff; margin: 0 0 15px; } .convio-email-signup .hidden { visibility: hidden; opacity: 0; height: 0; } .convio-email-signup .input-error { border: 1px solid #cd4e38; } .convio-email-signup div, .convio-email-signup .error:not(.hidden) { opacity: 1; transition: opacity 0.2s ease-out; } .convio-email-signup .form-thanks { text-align: center; } </style>';
+	formHTML += '<style>.convio-survey { width: 80%; margin: 0 auto 15px; } .convio-survey .form-row { margin: 0 0 25px; } .convio-survey .input-full { width: 100%; } .convio-survey .input-text { box-shadow: none; border: 1px solid #e8e7e5; transition: border 0.2s ease-out; -webkit-appearance: none; -moz-appearance: none; appearance: none; } .convio-survey .input-text:focus { outline: none; border: 1px solid #A2A2A2; } .convio-survey .error { background-color: #cd4e38; border-radius: 4px; padding: 3px 15px; color: #fff; margin: 0 0 15px; } .convio-survey .hidden { visibility: hidden; opacity: 0; height: 0; } .convio-survey .input-error { border: 1px solid #cd4e38; } .convio-survey div, .convio-survey .error:not(.hidden) { opacity: 1; transition: opacity 0.2s ease-out; } .convio-survey .form-thanks { text-align: center; } </style>';
 	formHTML += '<p class="error hidden"></p>';
 
-	$('.convio-email-signup input').each(function(){
+	$('.convio-survey input').each(function(){
 		var $input = $(this);
 		var id = $input.attr('data-id');
 		reqs.push($input.attr('data-req'));
@@ -26,18 +26,18 @@ $(function(){
 	formHTML += '<div class="form-thanks hidden">'+$thanks.html()+'</div>';
 	$emailContainer.html(formHTML).show();
 	
-	$('.convio-email-signup .btn-large').on('click',function(e){
+	$('.convio-survey .btn-large').on('click',function(e){
 		e.preventDefault();
 
 		var vals = [];
-		var $email = $('.convio-email-signup #email');
+		var $email = $('.convio-survey #email');
 		var errorClass = 'input-error';
-		var errorBlock = $('.convio-email-signup .error');
+		var errorBlock = $('.convio-survey .error');
 		var errorCount = 0;
 		var totalInputs = 0;
-		var offset = $('.convio-email-signup').offset();
+		var offset = $('.convio-survey').offset();
 		
-		$('.convio-email-signup input').each(function(i){
+		$('.convio-survey input').each(function(i){
 			var $input = $(this);
 			var val = $input.val();
 			vals.push(val);
@@ -76,8 +76,8 @@ $(function(){
 					type: "POST",
 					url: url
 				}).always(function(){
-					$('.convio-email-signup .form-thanks').removeClass('hidden');
-					$('.convio-email-signup .form-container').addClass('hidden');
+					$('.convio-survey .form-thanks').removeClass('hidden');
+					$('.convio-survey .form-container').addClass('hidden');
 					$('html, body').animate({ scrollTop: offset.top }, 250);
 				});
 			}

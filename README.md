@@ -15,7 +15,7 @@ browserify main.js -o convio-signup.js
 ## Using the Widget
 After referencing the script in the CMS, html must be added to create the form. Here's an example:
 ```
-<div class="convio-email-signup" data-surveyid="14288" style="display: none;">
+<div class="convio-survey" data-surveyid="14288" style="display: none;">
 	<input type="text" data-id="first" data-req="true" data-map="cons_first_name" data-label="First Name">
 	<input type="text" data-id="last" data-req="true" data-map="cons_last_name" data-label="Last Name">
 	<input type="text" data-id="email" data-req="true" data-map="cons_email" data-label="Email">
@@ -26,9 +26,9 @@ After referencing the script in the CMS, html must be added to create the form. 
 ```
 
 The main div has the following requirements:
-- **class:** convio-email-signup
+- **class:** 'convio-survey'
 - **data-surveyid:** The id of the Convio survery the form will submit to
-- **style:** display: none; *(Optional: prevents flash of unstyled content)*
+- **style:** 'display: none;' *(optional: prevents flash of unstyled content)*
 
 Next add inputs for each field you need on the form. Each field requires the following attributes:
 - **type:** 'text' *Current only fields with the type of 'text' are supported*
