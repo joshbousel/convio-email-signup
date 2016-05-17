@@ -1,5 +1,5 @@
 {
-  "name": "convio-email-signup",
+  "name": "convio-survey-widget",
   "version": "1.0.0",
   "description": "Convio survey widget for use with WCS CMS",
   "main": "main.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joshbousel/convio-email-signup.git"
+    "url": "git+https://github.com/joshbousel/convio-survey-widget.git"
   },
   "author": "Joshua Bousel",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/joshbousel/convio-email-signup/issues"
+    "url": "https://github.com/joshbousel/convio-survey-widget/issues"
   },
-  "homepage": "https://github.com/joshbousel/convio-email-signup#readme",
+  "homepage": "https://github.com/joshbousel/convio-survey-widget#readme",
   "dependencies": {
     "jquery": "^1.12.3"
   }
