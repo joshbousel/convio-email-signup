@@ -13,7 +13,15 @@ browserify main.js -o convio-signup.js
 ```
 
 ## Using the Widget
-After referencing the script in the CMS, html must be added to create the form. Here's an example:
+Create a Convio surveys and ensure it's set-up to use SSL.
+
+Add the following script reference in the CMS html embed:
+
+```
+https://secure3.convio.net/wcs/convio-survey-widget/convio-signup.js
+```
+
+Next the html must be added to create the form. Here's an example:
 ```
 <div class="convio-survey" data-surveyid="14288" style="display: none;">
 	<input type="text" data-id="first" data-req="true" data-map="cons_first_name" data-label="First Name">
@@ -31,7 +39,7 @@ The main div has the following requirements:
 - **style:** 'display: none;' *(optional: prevents flash of unstyled content)*
 
 Next add inputs for each field you need on the form. Each field requires the following attributes:
-- **type:** 'text' *Current only fields with the type of 'text' are supported*
+- **type:** 'text' *Currently only fields with the type of 'text' or 'state' are supported. 'state' renders a select field with a Convio compatible list of options*
 - **data-id:** The id of the form field *For proper email validation, an email field must have this value set as 'email'*
 - **data-req:** 'true' if the field is required, 'false' if it is not
 - **data-map:** The corresponding field name in Convio *ie: 'cons_email'*
