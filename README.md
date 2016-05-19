@@ -13,7 +13,7 @@ browserify main.js -o convio-signup.js
 ```
 
 ## Using the Widget
-Create a Convio surveys and ensure it's set-up to use SSL.
+Create a Convio survey and ensure it's set-up to use SSL.
 
 Add the following script reference in the CMS html embed:
 
