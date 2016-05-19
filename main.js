@@ -75,7 +75,6 @@ $(function(){
 							
 				url = encodeURI(url);
 				url = url.replace('#','%23');
-				console.log(url);
 				
 				$.ajax({
 					type: "POST",
