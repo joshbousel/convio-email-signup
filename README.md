@@ -27,7 +27,7 @@ Next the html must be added to create the form. Here's an example:
 	<input type="text" data-id="first" data-req="true" data-map="cons_first_name" data-label="First Name">
 	<input type="text" data-id="last" data-req="true" data-map="cons_last_name" data-label="Last Name">
 	<input type="text" data-id="email" data-req="true" data-map="cons_email" data-label="Email">
-	<input type="select" data-id="guests" data-req="false" data-map="guests" data-label="Number of Guests" data-options="1,2">
+	<input type="select" data-id="guests" data-req="false" data-map="guests" data-label="Number of Guests" data-options="1::2">
 	<div class="thanks">
 		<p>Thank you for signing up</p>
 	</div>
@@ -45,6 +45,6 @@ Next add inputs for each field you need on the form. Each field requires the fol
 - **data-req:** 'true' if the field is required, 'false' if it is not
 - **data-map:** The corresponding field name in Convio *ie: 'cons_email'*
 - **data-label:** The label to appear above the field
-- **data-options:** Options for select field, each separated by a comma *required for input type of select*
+- **data-options:** Options for select field, each separated by a two colons *required for input type of select*
 
 Finally, to display a thank you message, a div with the class of 'thanks' must be added. Any html within this div will display after the form is successfully submitted.
