@@ -37,12 +37,12 @@ $(function(){
 		formHTML += '</div>';
 	});
 	
-	formHTML += '<a href="#" class="btn-large fill-callout inline-block">Submit</a>';
+	formHTML += '<a href="#" class="btn-large btn-large--submit fill-callout inline-block">Submit</a>';
 	formHTML += '</div>';
 	formHTML += '<div class="form-thanks wysiwyg hidden">'+$thanks.html()+'</div>';
 	$emailContainer.html(formHTML).show();
 	
-	$('.convio-survey .btn-large').on('click',function(e){
+	$('.convio-survey .btn-large--submit').on('click',function(e){
 		e.preventDefault();
 
 		var vals = [];
