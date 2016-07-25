@@ -46,5 +46,6 @@ Next add inputs for each field you need on the form. Each field requires the fol
 - **data-map:** The corresponding field name in Convio *ie: 'cons_email'*
 - **data-label:** The label to appear above the field
 - **data-options:** Options for select field, each separated by a two colons *required for input type of select*
+- **data-selected:** Default selected option for 'select' or 'state' field type *required for input type of select*
 
 Finally, to display a thank you message, a div with the class of 'thanks' must be added. Any html within this div will display after the form is successfully submitted.

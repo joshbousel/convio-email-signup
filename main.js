@@ -5,6 +5,8 @@ $(function(){
 	var surveyID = $emailContainer.attr('data-surveyid');
 	var reqs = [];
 	var maps = [];
+	var options;
+	var states = ['AK','AL','AR','AZ','CA','CO','CT','DC','DE','FL','GA','HI','IA','ID','IL','IN','KS','KY','LA','MA','MD','ME','MI','MN','MO','MS','MT','NC','ND','NE','NH','NJ','NM','NV','NY','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VA','VT','WA','WI','WV','WY','AS','FM','GU','MH','MP','PR','PW','VI','AA','AE','AP','AB','BC','MB','NB','NL','NS','NT','NU','ON','PE','QC','SK','YT','None'];
 	var $thanks = $('.convio-survey .thanks');
 	var formHTML = '<div class="form-container">';
 	formHTML += '<style>.convio-survey { width: 80%; margin: 0 auto 15px; } .convio-survey .form-row { margin: 0 0 25px; } .convio-survey .input-full { width: 100%; } .convio-survey .input-text { box-shadow: none; border: 1px solid #e8e7e5; transition: border 0.2s ease-out; -webkit-appearance: none; -moz-appearance: none; appearance: none; } .convio-survey .input-text:focus { outline: none; border: 1px solid #A2A2A2; } .convio-survey .error { background-color: #cd4e38; border-radius: 4px; padding: 3px 15px; color: #fff; margin: 0 0 15px; } .convio-survey .hidden { visibility: hidden; opacity: 0; height: 0; } .convio-survey .input-error { border: 1px solid #cd4e38; } .convio-survey div, .convio-survey .error:not(.hidden) { opacity: 1; transition: opacity 0.2s ease-out; } .convio-survey .form-thanks { text-align: center; } .convio-survey select { background-image: url(/assets/icons/24/arrow-down-cb2c84cb2617db1cfd9f10dc924a3791.svg); background-position: 98% 65%; background-repeat: no-repeat; } .convio-survey .btn-large { color: #fff; }</style>';
@@ -18,14 +20,29 @@ $(function(){
 		
 		formHTML += '<div class="form-row"><label class="color-primary type-small" for="'+id+'">'+$input.attr('data-label')+'</label>';
 		
-		if ($input.attr('type') == 'state') {
-			formHTML += '<select name="'+id+'" id="'+id+'" class="input-text input-full"><option></option><option value="AK">AK</option><option value="AL">AL</option><option value="AR">AR</option><option value="AZ">AZ</option><option value="CA">CA</option><option value="CO">CO</option><option value="CT">CT</option><option value="DC">DC</option><option value="DE">DE</option><option value="FL">FL</option><option value="GA">GA</option><option value="HI">HI</option><option value="IA">IA</option><option value="ID">ID</option><option value="IL">IL</option><option value="IN">IN</option><option value="KS">KS</option><option value="KY">KY</option><option value="LA">LA</option><option value="MA">MA</option><option value="MD">MD</option><option value="ME">ME</option><option value="MI">MI</option><option value="MN">MN</option><option value="MO">MO</option><option value="MS">MS</option><option value="MT">MT</option><option value="NC">NC</option><option value="ND">ND</option><option value="NE">NE</option><option value="NH">NH</option><option value="NJ">NJ</option><option value="NM">NM</option><option value="NV">NV</option><option value="NY">NY</option><option value="OH">OH</option><option value="OK">OK</option><option value="OR">OR</option><option value="PA">PA</option><option value="RI">RI</option><option value="SC">SC</option><option value="SD">SD</option><option value="TN">TN</option><option value="TX">TX</option><option value="UT">UT</option><option value="VA">VA</option><option value="VT">VT</option><option value="WA">WA</option><option value="WI">WI</option><option value="WV">WV</option><option value="WY">WY</option><option value="AS">AS</option><option value="FM">FM</option><option value="GU">GU</option><option value="MH">MH</option><option value="MP">MP</option><option value="PR">PR</option><option value="PW">PW</option><option value="VI">VI</option><option value="AA">AA</option><option value="AE">AE</option><option value="AP">AP</option><option value="AB">AB</option><option value="BC">BC</option><option value="MB">MB</option><option value="NB">NB</option><option value="NL">NL</option><option value="NS">NS</option><option value="NT">NT</option><option value="NU">NU</option><option value="ON">ON</option><option value="PE">PE</option><option value="QC">QC</option><option value="SK">SK</option><option value="YT">YT</option><option value="None">None</option></select>';
-		} else if ($input.attr('type') == 'select') {
-			var options = $input.attr('data-options').split('::');
+		if ($input.attr('type') == 'select' || $input.attr('type') == 'state') {
+			if ($input.attr('type') == 'state') {
+				options = states;
+			} else {
+				options = $input.attr('data-options').split('::');
+			}
+			
+			var selected =  $input.attr('data-selected');
+			
+			if ($input.attr('type') == 'state') {
+				options = states;
+			}
+			
 			formHTML += '<select name="'+id+'" id="'+id+'" class="input-text input-full">';
 			
 			for (var i = 0; i < options.length; i++) {
-				formHTML += '<option value="'+options[i]+'">'+options[i]+'</option>';
+				formHTML += '<option value="'+options[i]+'"';
+				
+				if (options[i] == selected) {
+					formHTML += ' selected';
+				}
+				
+				formHTML += '>'+options[i]+'</option>';
 			}
 			
 			formHTML += '</select>';
