@@ -49,7 +49,7 @@ $(function(){
 		} else {
 			formHTML += '<input type="'+$input.attr('type')+'" class="input-text input-full" name="'+id+'" id="'+id+'">';
 		}
-		var buttonLabel = $input.attr('data-button-label');
+		var buttonLabel = ($emailContainer.attr('data-button-label') != 'undefined') $emailContainer.attr('data-button-label') 'Submit';
 			if ('data-button-label').value === 0){
 				('data-button-label').defaultValue = "Submit";
 			}else{
