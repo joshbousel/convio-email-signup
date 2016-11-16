@@ -49,11 +49,17 @@ $(function(){
 		} else {
 			formHTML += '<input type="'+$input.attr('type')+'" class="input-text input-full" name="'+id+'" id="'+id+'">';
 		}
+		var buttonLabel = $input.attr('data-button-label');
+			if ('data-button-label').value === 0){
+				('data-button-label').defaultValue = "Submit";
+			}else{
+				('data-button-label').value;
+			}
 		
 		formHTML += '</div>';
 	});
 	
-	formHTML += '<a href="#" class="btn-large btn-large--submit fill-callout inline-block">Submit</a>';
+	formHTML += '<a href="#" class="btn-large btn-large--submit fill-callout inline-block">+'buttonLabel'+</a>';
 	formHTML += '</div>';
 	formHTML += '<div class="form-thanks wysiwyg hidden">'+$thanks.html()+'</div>';
 	$emailContainer.html(formHTML).show();
