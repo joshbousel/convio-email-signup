@@ -3,6 +3,7 @@ var $ = require('jquery');
 $(function(){
 	var $emailContainer = $('.convio-survey');
 	var surveyID = $emailContainer.attr('data-surveyid');
+	var buttonLabel = ($emailContainer.attr('data-button-label') != undefined) ? $emailContainer.attr('data-button-label') : 'Submit';
 	var reqs = [];
 	var maps = [];
 	var options;
@@ -49,11 +50,10 @@ $(function(){
 		} else {
 			formHTML += '<input type="'+$input.attr('type')+'" class="input-text input-full" name="'+id+'" id="'+id+'">';
 		}
-		
 		formHTML += '</div>';
 	});
-	
-	formHTML += '<a href="#" class="btn-large btn-large--submit fill-callout inline-block">Submit</a>';
+
+	formHTML += '<a href="#" class="btn-large btn-large--submit fill-callout inline-block">'+buttonLabel+'</a>';
 	formHTML += '</div>';
 	formHTML += '<div class="form-thanks wysiwyg hidden">'+$thanks.html()+'</div>';
 	$emailContainer.html(formHTML).show();
