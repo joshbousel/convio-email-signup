@@ -4,7 +4,7 @@ var $ = require('jquery');
 $(function(){
 	var $emailContainer = $('.convio-survey');
 	var surveyID = $emailContainer.attr('data-surveyid');
-	var buttonLabel = ($emailContainer.attr('data-button-label') == 'undefined') ? $emailContainer.attr('data-button-label') : 'Submit';
+	var buttonLabel = ($emailContainer.attr('data-button-label') != undefined) ? $emailContainer.attr('data-button-label') : 'Submit';
 	var reqs = [];
 	var maps = [];
 	var options;
