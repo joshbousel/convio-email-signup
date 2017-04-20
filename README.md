@@ -39,6 +39,10 @@ The main div has the following requirements:
 - **data-surveyid:** The id of the Convio survery the form will submit to
 - **style:** 'display: none;' *(optional: prevents flash of unstyled content)*
 
+The main div also allows the following optional items:
+- **data-button-label:** If set, this will override the default "Submit" button label
+- **data-redirect:** If set, a redirect to the set url will occur instead of displaying the thank you div
+
 Next add inputs for each field you need on the form. Each field requires the following attributes:
 - **type:** 'text' *Currently only fields with the type of 'text', 'select', or 'state' are supported. 'state' renders a select field with a Convio compatible list of options*
 - **data-id:** The id of the form field *For proper email validation, an email field must have this value set as 'email'*

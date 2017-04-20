@@ -5,6 +5,7 @@ $(function(){
 	var $emailContainer = $('.convio-survey');
 	var surveyID = $emailContainer.attr('data-surveyid');
 	var buttonLabel = ($emailContainer.attr('data-button-label') != undefined) ? $emailContainer.attr('data-button-label') : 'Submit';
+	var redirect = ($emailContainer.attr('data-redirect') != undefined) ? $emailContainer.attr('data-redirect') : false;
 	var reqs = [];
 	var maps = [];
 	var options;
@@ -107,9 +108,13 @@ $(function(){
 					type: "POST",
 					url: url
 				}).always(function(){
-					$('.convio-survey .form-thanks').removeClass('hidden');
-					$('.convio-survey .form-container').addClass('hidden');
-					$('html, body').animate({ scrollTop: offset.top }, 250);
+					if (redirect) {
+						window.location.href=redirect;
+					} else {
+						$('.convio-survey .form-thanks').removeClass('hidden');
+						$('.convio-survey .form-container').addClass('hidden');
+						$('html, body').animate({ scrollTop: offset.top }, 250);
+					}
 				});
 			}
 		}
